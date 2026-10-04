@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taraka Lakshmi | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --pink: #ff4f9a;
+            --purple: #7857ff;
+            --blue: #42b8ff;
+            --background: #fff8fc;
+            --text: #25213b;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 3px 15px #7857ff12;
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--purple);
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+
+        .hero {
+            max-width: 1150px;
+            min-height: 88vh;
+            margin: auto;
+            padding: 80px 25px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ffe1ef;
+            color: #d92d7b;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #6e6982;
+            max-width: 600px;
+            margin: 18px 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            color: white;
+        }
+
+        .secondary-btn {
+            border: 2px solid var(--purple);
+            color: var(--purple);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px #7857ff30;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, #ffd8eb, #e1dcff, #d7f3ff);
+            border-radius: 35px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 20px 50px #7857ff18;
+            transform: rotate(2deg);
+        }
+
+        .profile-circle {
+            width: 180px;
+            height: 180px;
+            margin: auto auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+            font-size: 65px;
+            font-weight: 800;
+            border: 7px solid white;
+        }
+
+        .profile-card h2 {
+            font-size: 23px;
+        }
+
+        section {
+            padding: 80px 25px;
+            scroll-margin-top: 65px;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #777187;
+            margin-bottom: 40px;
+        }
+
+        .about-box {
+            background: white;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 10px 35px #7857ff12;
+            border-left: 5px solid var(--pink);
+        }
+
+        .about-box p {
+            color: #6e6982;
+            margin-bottom: 12px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: white;
+            padding: 22px 12px;
+            border-radius: 18px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 8px 25px #7857ff10;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            color: var(--purple);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 22px;
+            padding: 26px;
+            box-shadow: 0 10px 30px #7857ff12;
+            border-top: 4px solid var(--pink);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:nth-child(2) {
+            border-color: var(--purple);
+        }
+
+        .project-card:nth-child(3) {
+            border-color: var(--blue);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #777187;
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            color: var(--purple);
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: var(--pink);
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px #7857ff15;
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #e3deef;
+            border-radius: 12px;
+            font: inherit;
+            outline: none;
+        }
+
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: var(--purple);
+        }
+
+        .contact-box textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-box button {
+            border: none;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .contact-note {
+            color: #777187;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #7857ff, #ff4f9a);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            font-weight: 600;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-card {
+                max-width: 400px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 13px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .contact-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">Lakshmi<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div>
+                <span class="tag">✨ Welcome to my portfolio</span>
+
+                <h1>Hello, I'm<br>
+                    <span class="gradient-text">Taraka Lakshmi</span>
+                </h1>
+
+                <h2>Computer Science Engineering Student</h2>
+
+                <p>
+                    I am a CSE student interested in programming, web development,
+                    and building creative technology projects. I enjoy learning
+                    new skills and turning ideas into useful solutions.
+                </p>
+
+
+                <div class="buttons">
+                    <a href="#projects" class="btn primary-btn">
+                        Explore Projects ↗
+                    </a>
+
+
+                    <a href="resume.pdf" target="_blank" rel="noopener" class="btn secondary-btn">
+                        View Resume ↗
+                    </a>
+
+
+                    <a href="#contact" class="btn secondary-btn">
+                        Contact Me
+                    </a>
+                </div>
+
+
+                <div class="social-links">
+                    <a href="https://github.com/Lakshmi07-git" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/avala-tarakalakshmi-942a39422/" target="_blank"
+                        rel="noopener">LinkedIn ↗</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-circle">TL</div>
+                <h2>Taraka Lakshmi</h2>
+                <p>CSE Student | Learner | Developer</p>
+                <p> Learning something new every day</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-inner">
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <p class="section-subtitle">A little introduction about me</p>
+
+                <div class="about-box">
+                    <p>
+                        Hello! I am Taraka Lakshmi, a Computer Science Engineering
+                        student passionate about technology and software development.
+                    </p>
+                    <p>
+                        I am learning programming, frontend development, and
+                        problem-solving. I like exploring new ideas and improving
+                        my technical knowledge through practical projects.
+                    </p>
+                    <p>
+                        My goal is to develop useful applications, gain real-world
+                        experience, and grow into a skilled software professional.
+                    </p>
+                    <p><strong>Education:</strong> B.Tech in Computer Science Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-inner">
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                <p class="section-subtitle">Technologies and subjects I am learning</p>
+
+                <div class="skills-grid">
+                    <div class="skill">💻 C Programming</div>
+                    <div class="skill">🐍 Python</div>
+                    <div class="skill">🌐 HTML</div>
+                    <div class="skill">🎨 CSS</div>
+                    <div class="skill">⚡ JavaScript</div>
+                    <div class="skill">⚛️ React Basics</div>
+                    <div class="skill">🗄️ DBMS</div>
+                    <div class="skill">🧠 Problem Solving</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-inner">
+                <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+                <p class="section-subtitle">Some projects from my learning journey</p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-icon">👁️</div>
+                        <h3>Vision-Based Exam Monitoring</h3>
+                        <p>
+                            An academic project focused on using eye-gaze detection
+                            to monitor exam activity and identify possible suspicious
+                            behaviour during online examinations.
+                        </p>
+                        <a class="project-link" href="https://github.com/Lakshmi07-git/Lakshmi-project" target="_blank"
+                            rel="noopener">
+                            View Project on GitHub ↗
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">🎓</div>
+                        <h3>Campus Event Registration</h3>
+                        <p>
+                            A web project designed to present campus event information
+                            and provide students with a simple way to register for
+                            college activities.
+                        </p>
+                        <a class="project-link" href="https://github.com/Lakshmi07-git/campus-event-registration-"
+                            target="_blank" rel="noopener">
+                            View Project on GitHub ↗
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">🤖</div>
+                        <h3>Fire Fighter Robot</h3>
+                        <p>
+                            A robotics concept designed to detect fire and assist
+                            in firefighting in risky areas. The idea involves sensors,
+                            a robot platform, and a mechanism to help control small fires.
+                        </p>
+                        <a class="project-link" href="#contact">
+                            Ask Me About This Project ↗
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-inner">
+                <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+                <p class="section-subtitle">
+                    Have a question or want to work together? Send me a message.
+                </p>
+
+                <div class="contact-box">
+                    <form id="contactForm">
+                        <input type="text" id="name" placeholder="Your Name" required>
+
+                        <input type="email" id="email" placeholder="Your Email Address" required>
+
+                        <input type="text" id="subject" placeholder="Subject" required>
+
+                        <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+                        <button type="submit" class="btn primary-btn">
+                            Send Message ✉️
+                        </button>
+
+                        <p class="contact-note">
+                            This form opens your email application with your
+                            message ready to send.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+        <p>© <span id="year"></span> Taraka Lakshmi | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const recipient = "vu.241fa04a85@gmail.com";
+
+            const body =
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n\n" +
+                "Message:\n" + message;
+
+            const mailLink =
+                "mailto:" + recipient +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailLink;
+        });
+    </script>
+
+</body>
+
+</html>
